@@ -1,11 +1,15 @@
 # pi-provider-redpill
 
-Redpill AI for Pi — attested TLS (SPKI) pinning + per-response receipt verification on private-ai-gateway
+Redpill AI for Pi — attested TLS (SPKI) pinning on private-ai-gateway (prevention)
 
 This repository is a **release artifact** for [pi](https://pi.dev) (`pi-coding-agent`).
 It is generated from the single source of truth (SoT):
 
 **https://github.com/Dstack-TEE/private-ai-gateway**
+
+Security control is **attested TLS (SPKI) pinning** (prevention). Per-response
+receipt verification is intentionally not wired into this plugin — use SoT
+`clients/verifier-ts` (`@phala/aci-verifier`) if you need receipt audit.
 
 Do not treat this repo as the place to change protocol/kernel/verifier logic.
 See [Maintenance](#maintenance) below.
