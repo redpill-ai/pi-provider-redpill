@@ -1,0 +1,63 @@
+{
+  "name": "pi-provider-redpill",
+  "version": "0.2.0",
+  "description": "Redpill AI for Pi — attested TLS (SPKI) pinning + per-response receipt verification on private-ai-gateway",
+  "keywords": [
+    "ai-provider",
+    "attestation",
+    "confidential-ai",
+    "redpill",
+    "pi",
+    "pi-coding-agent",
+    "pi-extension",
+    "pi-package",
+    "pi-provider",
+    "tee",
+    "verifiable"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "private": false,
+  "files": [
+    "index.ts",
+    "core",
+    "vendor",
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "SOURCE.json",
+    ".npmrc"
+  ],
+  "scripts": {
+    "start": "pi -e .",
+    "pretest": "node -e \"console.log('no unit tests in artifact; run SoT clients/pi-provider')\""
+  },
+  "dependencies": {
+    "@phala/aci-verifier": "file:./vendor/aci-verifier",
+    "undici": "8.5.0"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  },
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redpill-ai/pi-provider-redpill"
+  },
+  "sot": {
+    "monorepo": "https://github.com/Dstack-TEE/private-ai-gateway",
+    "kernel": "@phala/pi-provider-aci",
+    "verifier": "@phala/aci-verifier@0.1.0",
+    "brand": "redpill",
+    "oauth": false
+  }
+}
